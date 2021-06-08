@@ -1,0 +1,32 @@
+{
+  "name": "serverless-application-example",
+  "version": "1.0.0",
+  "description": "Sample Serverless AWS App",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "sls offline"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/ptitdam2001/serverless-application-example.git"
+  },
+  "keywords": [
+    "aws",
+    "serverless",
+    "nodejs"
+  ],
+  "author": "Damien Suhard<ptitdam2001@gmail.com>",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/ptitdam2001/serverless-application-example/issues"
+  },
+  "homepage": "https://github.com/ptitdam2001/serverless-application-example#readme",
+  "dependencies": {
+    "express": "^4.17.1",
+    "serverless-http": "^2.7.0"
+  },
+  "devDependencies": {
+    "serverless-offline": "^7.0.0"
+  }
+}
