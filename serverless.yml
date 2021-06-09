@@ -3,15 +3,18 @@ service: serverless-application-example
 provider:
   name: aws
   runtime: nodejs12.x
-  stage: dev
-  region: us-east-1
+  stage: ${opt:stage, 'dev'}
+  timeout: 10
+  lambdaHashingVersion: 20201221
 
 functions:
-  app:
+  hello:
     handler: index.handler
-    events:
-      - http: ANY /
-      - http: 'ANY {proxy+}'
+  # app:
+  #   handler: index.handler
+  #   events:
+  #     - http: GET /
+  #     - http: 'GET {proxy+}'
 
 plugins:
   - serverless-offline
