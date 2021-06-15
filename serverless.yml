@@ -1,6 +1,7 @@
 org: ptitdam2001
 app: serverless-application-example
 service: serverless-application-example
+useDotenv: true
 
 provider:
   name: aws
@@ -9,8 +10,35 @@ provider:
   region: us-east-1
   timeout: 10
   lambdaHashingVersion: 20201221
+  environment:
+    ENV_TYPE: "${self:provider.stage}"
+    DB_URL: "${env:DB_URL}"
 
 functions:
+  createBook:
+    handler: handler.booksCreate
+    events:
+      - http:
+          path: api/books
+          method: post
+  getBook:
+    handler: handler.booksGetAll
+    events:
+      - http:
+          path: api/books
+          method: get
+  updateBook:
+    handler: handler.booksUpdate
+    events:
+      - http:
+          path: api/books
+          method: put
+  deleteBook:
+    handler: handler.booksDelete
+    events:
+      - http:
+          path: api/books
+          method: delete
   hello:
     handler: handler.hello
     events:
